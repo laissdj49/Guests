@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.lais.study.databinding.ActivityGuestFormBinding
+import constants.DataBaseConstants
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -31,5 +32,14 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val model = GuestModel(0, name, presence)
             viewModel.insert(model)
         }
+    }
+
+   private fun loadDate(){
+       val bundel = intent.extras
+       if (bundel != null){
+           val guestId = bundel.getInt(DataBaseConstants.GUEST.ID)
+           viewModel.get(guestId)
+       }
+
     }
 }
