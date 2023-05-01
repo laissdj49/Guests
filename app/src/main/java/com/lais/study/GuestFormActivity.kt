@@ -1,8 +1,9 @@
 package com.lais.study
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lais.study.databinding.ActivityGuestFormBinding
@@ -36,28 +37,36 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val name = binding.spaceName.text.toString()
             val presence = binding.buttonPresent.isChecked
             val model = GuestModel(guestId, name, presence)
-                viewModel.save(model)
-
-            finish()
+            viewModel.save(model)
         }
     }
 
-    private fun observe(){
+    private fun observe() {
         viewModel.guest.observe(this, Observer {
             binding.spaceName.setText(it.name)
-            if(it.presence){
+            if (it.presence) {
                 binding.buttonPresent.isChecked = true
             } else {
                 binding.buttonAbsent.isChecked = true
             }
         })
+
+        viewModel.saveGuest.observe(this, Observer {
+
+            if (it != "") {
+                Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT)
+                    .show()
+                finish()
+            }
+        })
     }
-   private fun loadDate(){
-       val bundel = intent.extras
-       if (bundel != null){
+
+    private fun loadDate() {
+        val bundel = intent.extras
+        if (bundel != null) {
             guestId = bundel.getInt(DataBaseConstants.GUEST.ID)
-           viewModel.get(guestId)
-       }
+            viewModel.get(guestId)
+        }
 
     }
 }
