@@ -24,12 +24,13 @@ class GuestRepository private constructor(context: Context) {
 
         return try {
             val dataBase = guestDataBase.writableDatabase
-            val presense = if (guest.presence) 1 else 0
+            val presence = if (guest.presence) 1 else 0
+
 
             val values = ContentValues()
 
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
-            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presense)
+            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presence)
             dataBase.insert(DataBaseConstants.GUEST.TABLE_NAME, null, values)
             true
         } catch (e: Exception) {

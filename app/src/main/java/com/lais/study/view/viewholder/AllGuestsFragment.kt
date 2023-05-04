@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lais.study.databinding.FragmentAllGuestsBinding
 import com.lais.study.ui.adapter.GuestsAdapter
 import com.lais.study.view.listener.OnGuestListener
-import com.lais.study.view.viewmodel.AllGuestsViewModel
+import com.lais.study.view.viewmodel.GuestsViewModel
 import constants.DataBaseConstants
 
 
@@ -23,7 +23,7 @@ class AllGuestsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private lateinit var viewModel: AllGuestsViewModel
+    private lateinit var viewModel: GuestsViewModel
     private val adapter = GuestsAdapter()
 
     override fun onCreateView(
@@ -31,13 +31,11 @@ class AllGuestsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GuestsViewModel::class.java)
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
 
         //layout
         binding.allGuests.layoutManager = LinearLayoutManager(context)
-
-        //Adapter
         binding.allGuests.adapter = adapter
         val listener =  object: OnGuestListener {
             override fun onClick(id: Int) {

@@ -26,6 +26,7 @@ class GuestFormViewModel(application: Application) : AndroidViewModel(applicatio
         } else {
             successFailure.success = repository.update(guest)
             }
+        _saveGuest.value = successFailure
         }
 
     fun get(id: Int) {
