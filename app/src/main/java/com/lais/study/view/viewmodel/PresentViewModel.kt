@@ -1,4 +1,4 @@
-package com.lais.study.ui.present
+package com.lais.study.view.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

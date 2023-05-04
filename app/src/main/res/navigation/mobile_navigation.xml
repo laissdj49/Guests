@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_all_guests"
-        android:name="com.lais.study.ui.guests.AllGuestsFragment"
+        android:name="com.lais.study.view.viewholder.AllGuestsFragment"
         android:label="@string/all_guests"
         tools:layout="@layout/fragment_all_guests" />
 
     <fragment
         android:id="@+id/nav_present"
-        android:name="com.lais.study.ui.present.PresentFragment"
+        android:name="com.lais.study.view.viewholder.PresentFragment"
         android:label="@string/menu_present"
         tools:layout="@layout/fragment_present" />
 
     <fragment
         android:id="@+id/nav_absent"
-        android:name="com.lais.study.ui.absent.AbsentFragment"
+        android:name="com.lais.study.view.viewholder.AbsentFragment"
         android:label="@string/menu_absent"
         tools:layout="@layout/fragment_absent" />
 </navigation>

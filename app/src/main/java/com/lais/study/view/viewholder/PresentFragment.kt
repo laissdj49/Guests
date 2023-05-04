@@ -1,4 +1,4 @@
-package com.lais.study.ui.absent
+package com.lais.study.view.viewholder
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.lais.study.databinding.FragmentAbsentBinding
+import com.lais.study.databinding.FragmentPresentBinding
+import com.lais.study.view.viewmodel.PresentViewModel
 
+class PresentFragment : Fragment() {
 
-
-class AbsentFragment : Fragment() {
-
-    private var _binding: FragmentAbsentBinding? = null
+    private var _binding: FragmentPresentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +23,14 @@ class AbsentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val absentViewModel =
-            ViewModelProvider(this).get(AbsentViewModel::class.java)
+        val presentViewModel =
+            ViewModelProvider(this).get(PresentViewModel::class.java)
 
-        _binding = FragmentAbsentBinding.inflate(inflater, container, false)
+        _binding = FragmentPresentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textAbsent
-        absentViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textPresent
+        presentViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

@@ -1,9 +1,8 @@
 package Repository
 
-import android.app.Application
 import android.content.ContentValues
 import android.content.Context
-import com.lais.study.GuestModel
+import com.lais.study.model.GuestModel
 import constants.DataBaseConstants
 
 class GuestRepository private constructor(context: Context) {

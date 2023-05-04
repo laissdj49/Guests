@@ -1,4 +1,4 @@
-package com.lais.study.ui.guests
+package com.lais.study.view.listener
 
 interface OnGuestListener {
     fun onClick(id: Int)

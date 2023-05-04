@@ -1,10 +1,10 @@
-package com.lais.study.ui.guests
+package com.lais.study.ui.adapter
 
 import android.app.AlertDialog
-import android.app.Dialog
 import androidx.recyclerview.widget.RecyclerView
-import com.lais.study.GuestModel
+import com.lais.study.model.GuestModel
 import com.lais.study.databinding.RowGuestsBinding
+import com.lais.study.view.listener.OnGuestListener
 
 class ViewHolder(private val bind: RowGuestsBinding, private val listener: OnGuestListener) :
     RecyclerView.ViewHolder(bind.root) {

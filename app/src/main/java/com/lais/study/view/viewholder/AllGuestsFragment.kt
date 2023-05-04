@@ -1,4 +1,4 @@
-package com.lais.study.ui.guests
+package com.lais.study.view.viewholder
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.lais.study.GuestFormActivity
 import com.lais.study.databinding.FragmentAllGuestsBinding
+import com.lais.study.ui.adapter.GuestsAdapter
+import com.lais.study.view.listener.OnGuestListener
+import com.lais.study.view.viewmodel.AllGuestsViewModel
 import constants.DataBaseConstants
 
 
@@ -38,7 +39,7 @@ class AllGuestsFragment : Fragment() {
 
         //Adapter
         binding.allGuests.adapter = adapter
-        val listener =  object: OnGuestListener{
+        val listener =  object: OnGuestListener {
             override fun onClick(id: Int) {
                 val intent = Intent(context, GuestFormActivity::class.java)
                 val bundle = Bundle()

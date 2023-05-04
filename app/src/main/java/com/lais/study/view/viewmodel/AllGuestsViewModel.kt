@@ -1,11 +1,11 @@
-package com.lais.study.ui.guests
+package com.lais.study.view.viewmodel
 
 import Repository.GuestRepository
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.lais.study.GuestModel
+import com.lais.study.model.GuestModel
 
 class AllGuestsViewModel(application: Application) : AndroidViewModel(application) {
 

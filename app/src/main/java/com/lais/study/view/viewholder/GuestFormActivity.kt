@@ -1,4 +1,4 @@
-package com.lais.study
+package com.lais.study.view.viewholder
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.lais.study.R
 import com.lais.study.databinding.ActivityGuestFormBinding
+import com.lais.study.model.GuestModel
+import com.lais.study.view.viewmodel.GuestFormViewModel
 import constants.DataBaseConstants
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
@@ -53,8 +56,8 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel.saveGuest.observe(this, Observer {
 
-            if (it != "") {
-                Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT)
+            if (it.success) {
+                Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT)
                     .show()
                 finish()
             }

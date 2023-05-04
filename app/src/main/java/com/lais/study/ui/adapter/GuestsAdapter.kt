@@ -1,10 +1,11 @@
-package com.lais.study.ui.guests
+package com.lais.study.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lais.study.GuestModel
+import com.lais.study.model.GuestModel
 import com.lais.study.databinding.RowGuestsBinding
+import com.lais.study.view.listener.OnGuestListener
 
 class GuestsAdapter : RecyclerView.Adapter<ViewHolder>() {
 
